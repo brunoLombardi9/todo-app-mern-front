@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import { MdCancel } from "react-icons/Md";
+// import { MdCancel } from "react-icons/Md";
 
 const TaskItem = ({ task, deleteTask }) => {
   return (
@@ -26,12 +26,12 @@ const TaskItem = ({ task, deleteTask }) => {
         }}
       >
         <Typography color={"white"}>{task.date}</Typography>
-        <MdCancel
+        {/* <MdCancel
           fill="red"
           size={25}
           style={{ cursor: "pointer" }}
           onClick={() => deleteTask(task._id)}
-        />
+        /> */}
       </Box>
     </Box>
   );

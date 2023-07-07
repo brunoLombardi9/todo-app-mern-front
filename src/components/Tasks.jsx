@@ -5,17 +5,21 @@ import TaskItem from "./TaskItem";
 
 const Tasks = ({ tasks, deleteTask }) => {
   return (
-    <CustomBox>
-      {tasks.length < 1 ? (
-        <Typography variant="body1" color="white" textAlign="center">
-          No hay Tareas
-        </Typography>
-      ) : (
-        tasks.map((task) => (
-          <TaskItem task={task} deleteTask={deleteTask} key={task._id} />
-        ))
-      )}
-    </CustomBox>
+    // <CustomBox>
+    //   {tasks.length < 1 ? (
+    //     <Typography variant="body1" color="white" textAlign="center">
+    //       No hay Tareas
+    //     </Typography>
+    //   ) : (
+    //     tasks.map((task) => (
+    //       <TaskItem task={task} deleteTask={deleteTask} key={task._id} />
+    //     ))
+    //   )}
+    // </CustomBox>
+
+    <Typography variant="body1" color="white" textAlign="center">
+    No hay Tareas
+  </Typography>
   );
 };
 

@@ -38,7 +38,7 @@ const TasksForm = ({handleSearch}) => {
             }}
           >
             <TextField
-              placeholder="Title"
+              placeholder="Título"
               sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
               fullWidth
               onChange={(e) => setTitle(e.target.value)}
@@ -52,7 +52,7 @@ const TasksForm = ({handleSearch}) => {
           </Box>
 
           <TextField
-            placeholder="Task..."
+            placeholder="Tarea..."
             type="text"
             onChange={(event) => setContent(event.target.value)}
             fullWidth

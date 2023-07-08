@@ -50,7 +50,7 @@ const App = () => {
                 }
               />
               <Route
-                path="/task/:task"
+                path="/task/:taskId"
                 element={
                   <ProtectedRoute>
                     <Task />

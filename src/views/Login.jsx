@@ -56,7 +56,7 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
-          placeholder="Password"
+          placeholder="Contraseña"
           type="password"
           sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
           onChange={(e) => setPassword(e.target.value)}
@@ -68,19 +68,19 @@ const Login = () => {
           disabled={!email || !password}
           sx={{ padding: 1.1 }}
         >
-          Login
+          Entrar
         </Button>
 
         <Button variant="contained" color="success" onClick={handleGoogle}>
-          Enter with Google
+          Entrar con Google
           <FcGoogle size={30} />
         </Button>
       </Box>
 
       <Typography fontSize={14}>
-        Already have an account?{" "}
+        No tiene una cuenta?{" "}
         <Link to={"/signup"} style={{ textDecoration: "none" }}>
-          Signup
+          Registro
         </Link>
       </Typography>
     </CustomBox>

@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-// import { MdCancel } from "react-icons/Md";
+import { MdCancel } from "react-icons/Md";
+import { Link } from "react-router-dom";
 
 const TaskItem = ({ task, deleteTask }) => {
   return (
@@ -14,9 +15,14 @@ const TaskItem = ({ task, deleteTask }) => {
         borderRadius: "5px",
       }}
     >
-      <Typography color={"white"} noWrap>
-        {task.title}
-      </Typography>
+      <Link
+        to={`/task/${task._id}`}
+        style={{ textDecoration: "none", width: "100%" }}
+      >
+        <Typography color={"white"} noWrap>
+          {task.title}
+        </Typography>
+      </Link>
       <Box
         sx={{
           display: "flex",
@@ -26,12 +32,12 @@ const TaskItem = ({ task, deleteTask }) => {
         }}
       >
         <Typography color={"white"}>{task.date}</Typography>
-        {/* <MdCancel
+        <MdCancel
           fill="red"
           size={25}
           style={{ cursor: "pointer" }}
           onClick={() => deleteTask(task._id)}
-        /> */}
+        />
       </Box>
     </Box>
   );

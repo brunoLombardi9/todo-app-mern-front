@@ -64,13 +64,13 @@ const Signup = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
-          placeholder="Password"
+          placeholder="Contraseña"
           type="password"
           sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
           onChange={(e) => setPassword(e.target.value)}
         />
         <TextField
-          placeholder="Password Confirmation"
+          placeholder="Confirme contraseña"
           type="password"
           sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
@@ -82,19 +82,19 @@ const Signup = () => {
           disabled={!email || !password || !passwordConfirmation}
           sx={{ padding: 1.1 }}
         >
-          Register
+          Registrarse
         </Button>
 
         <Button variant="contained" color="success" onClick={handleGoogle}>
-          Signup with Google
+          Registrarse con Google
           <FcGoogle size={30} />
         </Button>
       </Box>
 
       <Typography fontSize={14}>
-        Doesnt have an account?{" "}
+        Ya tiene una cuenta?{" "}
         <Link to={"/login"} style={{ textDecoration: "none" }}>
-          Login
+          Igrese aqui
         </Link>
       </Typography>
     </CustomBox>

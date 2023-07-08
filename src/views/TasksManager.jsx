@@ -7,17 +7,18 @@ import apiCall from "../utils/apiCalls";
 const TasksManager = () => {
   const { user } = useContext(authContext);
   const [tasks, setTasks] = useState([]);
-  const [search, setSearch] = useState(false);
+  const [search, setSearch] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   async function getTasks() {
+    setLoading(true);
     try {
-      const params = new URLSearchParams();
-      params.append("userId", user.userId);
-      const tasks = await apiCall.get(`/tasksmanager`, { params });
-      setTasks(tasks.data);
+      const { data } = await apiCall.get(`/tasksmanager/${user.userId}`);
+      setTasks(data);
     } catch (error) {
-      console.log("Something went brong.");
+      console.log("Algo salio mal, intente nuevamente mas tarde.");
     }
+    setLoading(false);
   }
 
   function handleSearch() {
@@ -37,14 +38,16 @@ const TasksManager = () => {
   }
 
   useEffect(() => {
-    getTasks();
-    setSearch(false);
+    if (search) {
+      getTasks();
+      setSearch(false);
+    }
   }, [search]);
 
   return (
     <>
       <TasksForm handleSearch={handleSearch} />
-      <Tasks tasks={tasks} deleteTask={deleteTask} />
+      <Tasks tasks={tasks} deleteTask={deleteTask} loading={loading} />
     </>
   );
 };

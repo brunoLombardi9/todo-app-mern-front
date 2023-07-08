@@ -9,7 +9,7 @@ const Tasks = ({ tasks, deleteTask, loading }) => {
     <CustomBox>
       {loading && <Loading />}
 
-      {!loading && tasks.length < 1 && (
+      {!loading && tasks.length === 0 && (
         <Typography variant="body1" color="white" textAlign="center">
           No hay Tareas
         </Typography>

@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./views/Login.jsx";
 import Signup from "./views/Signup.jsx";
 import TasksManager from "./views/TasksManager.jsx";
-import Task from "./views/Task.jsx";
 import AuthContext from "./context/AuthContext.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Error404 from "./views/Error404.jsx";
@@ -46,14 +45,6 @@ const App = () => {
                 element={
                   <ProtectedRoute>
                     <TasksManager />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/task/:taskId"
-                element={
-                  <ProtectedRoute>
-                    <Task />
                   </ProtectedRoute>
                 }
               />

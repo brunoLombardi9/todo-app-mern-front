@@ -4,7 +4,7 @@ import CustomBox from "./CustomBox";
 import { authContext } from "../context/AuthContext";
 import apiCall from "../utils/apiCalls";
 
-const TasksForm = ({handleSearch}) => {
+const TasksForm = ({ handleSearch }) => {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [content, setContent] = useState("");
@@ -16,7 +16,7 @@ const TasksForm = ({handleSearch}) => {
     try {
       const bodyData = { title, date, content, userId: user.userId };
       await apiCall.post("/tasksmanager", bodyData);
-      handleSearch()
+      handleSearch();
     } catch (error) {
       console.log(error);
     }
@@ -42,6 +42,7 @@ const TasksForm = ({handleSearch}) => {
               sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
               fullWidth
               onChange={(e) => setTitle(e.target.value)}
+              inputProps={{ maxLength: 25 }}
             />
             <TextField
               type="date"

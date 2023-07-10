@@ -1,14 +1,14 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import React, { useContext, useState } from "react";
 import CustomBox from "./CustomBox";
 import { authContext } from "../context/AuthContext";
 import apiCall from "../utils/apiCalls";
 
-const TasksForm = ({ handleSearch }) => {
+const CreateTasksForm = ({ handleSearch, loading }) => {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [content, setContent] = useState("");
-  const { user } = useContext(authContext);
+  const { user, logout } = useContext(authContext);
 
   async function handleForm(e) {
     e.preventDefault();
@@ -26,6 +26,14 @@ const TasksForm = ({ handleSearch }) => {
     <>
       <form onSubmit={handleForm}>
         <CustomBox>
+          <Button
+            onClick={logout}
+            variant="contained"
+            color="delete"
+            sx={{ maxWidth: "100px", marginLeft: "auto" }}
+          >
+            Logout
+          </Button>
           <Box
             sx={{
               display: "flex",
@@ -67,7 +75,7 @@ const TasksForm = ({ handleSearch }) => {
             variant="contained"
             type="submit"
             color="orange"
-            disabled={!title}
+            disabled={!title || loading}
             sx={{ marginTop: "2rem" }}
           >
             Agregar tarea
@@ -78,4 +86,4 @@ const TasksForm = ({ handleSearch }) => {
   );
 };
 
-export default TasksForm;
+export default CreateTasksForm;

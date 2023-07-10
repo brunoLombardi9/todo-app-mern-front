@@ -71,10 +71,10 @@ const Login = () => {
           Entrar
         </Button>
 
-        <Button variant="contained" color="success" onClick={handleGoogle}>
+        {/* <Button variant="contained" color="success" onClick={handleGoogle}>
           Entrar con Google
           <FcGoogle size={30} />
-        </Button>
+        </Button> */}
       </Box>
 
       <Typography fontSize={14}>

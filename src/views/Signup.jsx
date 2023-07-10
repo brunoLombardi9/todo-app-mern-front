@@ -18,11 +18,11 @@ const Signup = () => {
     setError(null);
 
     if (password !== passwordConfirmation) {
-      return setError("Passwords dont match.");
+      return setError("Las contraseñas no coinciden.");
     }
 
     if (password.length < 8) {
-      return setError("Password must have at least 8 digits.");
+      return setError("Las contraseñas deben tener al menos 8 dígitos.");
     }
 
     try {
@@ -84,11 +84,11 @@ const Signup = () => {
         >
           Registrarse
         </Button>
-
+{/* 
         <Button variant="contained" color="success" onClick={handleGoogle}>
           Registrarse con Google
           <FcGoogle size={30} />
-        </Button>
+        </Button> */}
       </Box>
 
       <Typography fontSize={14}>

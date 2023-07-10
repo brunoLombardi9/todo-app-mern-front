@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import TasksForm from "../components/TaskForm";
-import Tasks from "../components/Tasks";
+import CreateTasksForm from "../components/CreateTaskForm";
+import TasksList from "../components/TasksList";
 import { authContext } from "../context/AuthContext";
 import apiCall from "../utils/apiCalls";
 
@@ -46,8 +46,8 @@ const TasksManager = () => {
 
   return (
     <>
-      <TasksForm handleSearch={handleSearch} />
-      <Tasks tasks={tasks} deleteTask={deleteTask} loading={loading} />
+      <CreateTasksForm handleSearch={handleSearch} loading={loading}/>
+      <TasksList tasks={tasks} deleteTask={deleteTask} loading={loading} />
     </>
   );
 };

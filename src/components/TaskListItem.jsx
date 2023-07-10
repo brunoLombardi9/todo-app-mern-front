@@ -1,9 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { BsTrash3Fill } from "react-icons/Bs";
-import Task from "../views/Task";
+import TaskDetail from "./TaskDetail";
 
-const TaskItem = ({ task, deleteTask }) => {
+const TaskListItem = ({ task, deleteTask }) => {
   const [showModal, setShowModal] = useState(false);
 
   function handleModal() {
@@ -12,7 +12,7 @@ const TaskItem = ({ task, deleteTask }) => {
   return (
     <>
       {showModal && (
-        <Task
+        <TaskDetail
           taskId={task._id}
           handleModal={handleModal}
           deleteTask={deleteTask}
@@ -59,4 +59,4 @@ const TaskItem = ({ task, deleteTask }) => {
   );
 };
 
-export default TaskItem;
+export default TaskListItem;

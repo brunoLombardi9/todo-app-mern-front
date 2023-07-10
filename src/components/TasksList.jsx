@@ -1,10 +1,10 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
 import React from "react";
 import CustomBox from "./CustomBox";
-import TaskItem from "./TaskItem";
+import TaskListItem from "./TaskListItem";
 import Loading from "./Loading";
 
-const Tasks = ({ tasks, deleteTask, loading }) => {
+const TasksList = ({ tasks, deleteTask, loading }) => {
   return (
     <CustomBox>
       {loading && <Loading />}
@@ -18,10 +18,10 @@ const Tasks = ({ tasks, deleteTask, loading }) => {
       {!loading &&
         tasks.length > 0 &&
         tasks.map((task) => (
-          <TaskItem task={task} deleteTask={deleteTask} key={task._id} />
+          <TaskListItem task={task} deleteTask={deleteTask} key={task._id} />
         ))}
     </CustomBox>
   );
 };
 
-export default Tasks;
+export default TasksList;

@@ -8,7 +8,7 @@ const CreateTasksForm = ({ handleSearch, loading }) => {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [content, setContent] = useState("");
-  const { user, logout } = useContext(authContext);
+  const { user } = useContext(authContext);
 
   async function handleForm(e) {
     e.preventDefault();
@@ -24,21 +24,12 @@ const CreateTasksForm = ({ handleSearch, loading }) => {
 
   return (
     <>
-      <form onSubmit={handleForm}>
+      <Box onSubmit={handleForm} component={"form"} sx={{paddingTop: {xs: 10 ,md: 0}}}>
         <CustomBox>
-          <Button
-            onClick={logout}
-            variant="contained"
-            color="delete"
-            sx={{ maxWidth: "100px", marginLeft: "auto" }}
-          >
-            Logout
-          </Button>
           <Box
             sx={{
               display: "flex",
               justifyContent: "space-between",
-              flexDirection: { xs: "column", md: "row" },
               width: "100%",
               margin: "auto",
               gap: 2,
@@ -81,7 +72,7 @@ const CreateTasksForm = ({ handleSearch, loading }) => {
             Agregar tarea
           </Button>
         </CustomBox>
-      </form>
+      </Box>
     </>
   );
 };

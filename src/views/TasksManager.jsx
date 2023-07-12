@@ -3,6 +3,7 @@ import CreateTasksForm from "../components/CreateTaskForm";
 import TasksList from "../components/TasksList";
 import { authContext } from "../context/AuthContext";
 import apiCall from "../utils/apiCalls";
+import { Grid } from "@mui/material";
 
 const TasksManager = () => {
   const { user } = useContext(authContext);
@@ -46,8 +47,15 @@ const TasksManager = () => {
 
   return (
     <>
-      <CreateTasksForm handleSearch={handleSearch} loading={loading}/>
-      <TasksList tasks={tasks} deleteTask={deleteTask} loading={loading} />
+      <Grid
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "column", md: "row" },
+        }}
+      >
+        <CreateTasksForm handleSearch={handleSearch} loading={loading} />
+        <TasksList tasks={tasks} deleteTask={deleteTask} loading={loading} />
+      </Grid>
     </>
   );
 };

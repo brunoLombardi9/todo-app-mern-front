@@ -66,7 +66,7 @@ const Login = () => {
           color="orange"
           type="submit"
           disabled={!email || !password}
-          sx={{ padding: 1.1 }}
+          sx={{ padding: 1.1 }}z
         >
           Entrar
         </Button>

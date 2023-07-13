@@ -46,17 +46,21 @@ const TasksManager = () => {
   }, [search]);
 
   return (
-    <>
-      <Grid
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", sm: "column", md: "row" },
-        }}
-      >
-        <CreateTasksForm handleSearch={handleSearch} loading={loading} />
-        <TasksList tasks={tasks} deleteTask={deleteTask} loading={loading} />
-      </Grid>
-    </>
+    <Grid
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignContent: "center",
+        flexDirection: { xs: "column", sm: "column", md: "row" },
+        width: "100%",
+        minHeight: "100%",
+        gap: 5,
+        padding: 5,
+      }}
+    >
+      <CreateTasksForm handleSearch={handleSearch} loading={loading} />
+      <TasksList tasks={tasks} deleteTask={deleteTask} loading={loading} />
+    </Grid>
   );
 };
 

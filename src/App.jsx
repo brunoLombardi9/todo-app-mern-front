@@ -8,6 +8,7 @@ import TasksManager from "./views/TasksManager.jsx";
 import AuthContext from "./context/AuthContext.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Error404 from "./views/Error404.jsx";
+import TaskDetail from "./views/TaskDetail.jsx";
 
 const App = () => {
   return (
@@ -48,7 +49,15 @@ const App = () => {
                   </ProtectedRoute>
                 }
               />
-              <Route path="*" element={<Error404 />}/>
+              <Route
+                path="/task/:taskId"
+                element={
+                  <ProtectedRoute>
+                    <TaskDetail />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="*" element={<Error404 />} />
             </Routes>
           </BrowserRouter>
         </AppContainer>

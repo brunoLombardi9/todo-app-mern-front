@@ -1,23 +1,11 @@
 import { Box, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import { BsTrash3Fill } from "react-icons/Bs";
-import TaskDetail from "./TaskDetail";
+import { Link } from "react-router-dom";
 
 const TaskListItem = ({ task, deleteTask }) => {
-  const [showModal, setShowModal] = useState(false);
-
-  function handleModal() {
-    setShowModal(!showModal);
-  }
   return (
     <>
-      {showModal && (
-        <TaskDetail
-          taskId={task._id}
-          handleModal={handleModal}
-          deleteTask={deleteTask}
-        />
-      )}
       <Box
         sx={{
           display: "flex",
@@ -31,14 +19,14 @@ const TaskListItem = ({ task, deleteTask }) => {
           transitionTimingFunction: "ease-in-out",
         }}
       >
-        <Box
-          onClick={handleModal}
-          sx={{ textDecoration: "none", width: "80%" }}
-        >
-          <Typography color={"white"} noWrap>
-            {task.title}
-          </Typography>
+        <Box sx={{ textDecoration: "none", width: "80%" }}>
+          <Link to={`/task/${task._id}`} style={{ textDecoration: "none" }}>
+            <Typography color={"white"} noWrap>
+              {task.title}
+            </Typography>
+          </Link>
         </Box>
+
         <Box
           sx={{
             display: "flex",

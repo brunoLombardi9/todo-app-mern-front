@@ -1,5 +1,5 @@
-import { Box } from '@mui/system'
-import React from 'react'
+import { Box } from "@mui/system";
+import React from "react";
 
 const CustomBox = ({ children }) => {
   return (
@@ -13,12 +13,12 @@ const CustomBox = ({ children }) => {
         padding: 5,
         borderRadius: "10px",
         boxShadow: 10,
-        margin: "1rem",
-        gap:2
-      }}>
+        gap: 2,
+      }}
+    >
       {children}
     </Box>
-  )
-}
+  );
+};
 
-export default CustomBox
+export default CustomBox;

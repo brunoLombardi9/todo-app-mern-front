@@ -20,11 +20,8 @@ const ProtectedRoute = ({ children, needsAuth = true }) => {
       {auth && (
         <Box
           sx={{
-            padding: 3,
+            padding: 2,
             display: "flex",
-            position: "absolute",
-            top: 0,
-            right: 0,
           }}
         >
           <Box
@@ -32,6 +29,8 @@ const ProtectedRoute = ({ children, needsAuth = true }) => {
               display: "flex",
               alignItems: "center",
               gap: 2,
+              marginLeft: "auto",
+              marginRight: 2,
             }}
           >
             <Typography color={"white"}>Bienvenido {user.email} !</Typography>

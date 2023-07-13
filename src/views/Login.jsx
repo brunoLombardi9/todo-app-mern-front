@@ -38,52 +38,54 @@ const Login = () => {
     }
   }, [error]);
 
-
   return (
-    <CustomBox>
-      <Box
-        display={"flex"}
-        flexDirection={"column"}
-        gap={2}
-        paddingBottom={2}
-        component={"form"}
-        onSubmit={handleLogin}
-      >
-        <TextField
-          placeholder="E-mail"
-          type="email"
-          sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <TextField
-          placeholder="Contraseña"
-          type="password"
-          sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Button
-          variant="contained"
-          color="orange"
-          type="submit"
-          disabled={!email || !password}
-          sx={{ padding: 1.1 }}z
+    <Box sx={{ margin: "auto" }}>
+      <CustomBox>
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          gap={2}
+          paddingBottom={2}
+          component={"form"}
+          onSubmit={handleLogin}
         >
-          Entrar
-        </Button>
+          <TextField
+            placeholder="E-mail"
+            type="email"
+            sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <TextField
+            placeholder="Contraseña"
+            type="password"
+            sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button
+            variant="contained"
+            color="orange"
+            type="submit"
+            disabled={!email || !password}
+            sx={{ padding: 1.1 }}
+            z
+          >
+            Entrar
+          </Button>
 
-        {/* <Button variant="contained" color="success" onClick={handleGoogle}>
+          {/* <Button variant="contained" color="success" onClick={handleGoogle}>
           Entrar con Google
           <FcGoogle size={30} />
         </Button> */}
-      </Box>
+        </Box>
 
-      <Typography fontSize={14}>
-        No tiene una cuenta?{" "}
-        <Link to={"/signup"} style={{ textDecoration: "none" }}>
-          Registro
-        </Link>
-      </Typography>
-    </CustomBox>
+        <Typography fontSize={14}>
+          No tiene una cuenta?{" "}
+          <Link to={"/signup"} style={{ textDecoration: "none" }}>
+            Registro
+          </Link>
+        </Typography>
+      </CustomBox>
+    </Box>
   );
 };
 

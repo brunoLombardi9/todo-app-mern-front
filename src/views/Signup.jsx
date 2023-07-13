@@ -28,12 +28,12 @@ const Signup = () => {
     try {
       const bodyData = { email, password };
       const { data } = await apiCall.post("/signup", bodyData);
-      login(data)
+      login(data);
     } catch (err) {
-      if(err?.response){
+      if (err?.response) {
         return setError(err?.response?.data?.error);
       }
-      setError(err?.error)
+      setError(err?.error);
     }
   }
 
@@ -48,56 +48,58 @@ const Signup = () => {
   }, [error]);
 
   return (
-    <CustomBox>
-      <Box
-        display={"flex"}
-        flexDirection={"column"}
-        gap={2}
-        paddingBottom={2}
-        component={"form"}
-        onSubmit={handleSignup}
-      >
-        <TextField
-          placeholder="E-mail"
-          type="email"
-          sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <TextField
-          placeholder="Contraseña"
-          type="password"
-          sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <TextField
-          placeholder="Confirme contraseña"
-          type="password"
-          sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-        />
-        <Button
-          variant="contained"
-          color="orange"
-          type="submit"
-          disabled={!email || !password || !passwordConfirmation}
-          sx={{ padding: 1.1 }}
+    <Box sx={{ margin: "auto" }}>
+      <CustomBox>
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          gap={2}
+          paddingBottom={2}
+          component={"form"}
+          onSubmit={handleSignup}
         >
-          Registrarse
-        </Button>
-{/* 
+          <TextField
+            placeholder="E-mail"
+            type="email"
+            sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <TextField
+            placeholder="Contraseña"
+            type="password"
+            sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <TextField
+            placeholder="Confirme contraseña"
+            type="password"
+            sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
+          />
+          <Button
+            variant="contained"
+            color="orange"
+            type="submit"
+            disabled={!email || !password || !passwordConfirmation}
+            sx={{ padding: 1.1 }}
+          >
+            Registrarse
+          </Button>
+          {/* 
         <Button variant="contained" color="success" onClick={handleGoogle}>
           Registrarse con Google
           <FcGoogle size={30} />
         </Button> */}
-      </Box>
+        </Box>
 
-      <Typography fontSize={14}>
-        Ya tiene una cuenta?{" "}
-        <Link to={"/login"} style={{ textDecoration: "none" }}>
-          Igrese aqui
-        </Link>
-      </Typography>
-    </CustomBox>
+        <Typography fontSize={14}>
+          Ya tiene una cuenta?{" "}
+          <Link to={"/login"} style={{ textDecoration: "none" }}>
+            Ingrese aqui
+          </Link>
+        </Typography>
+      </CustomBox>
+    </Box>
   );
 };
 

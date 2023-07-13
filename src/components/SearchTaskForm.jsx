@@ -1,19 +1,35 @@
 import { TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
-const SearchTaskForm = ({ tasks, setSelectedTasks }) => {
+const SearchTaskForm = ({ tasks, setSelectedTasks, setCurrentPage }) => {
   const [input, setInput] = useState("");
 
-  function searchTask(e) {
-    const inputWords = input.split(" ");
+  function searchTask() {
+    const inputWords = input.toLowerCase().split(" ");
+
     const filteredTasks = tasks.filter((task) => {
-      const taskTitle = task.title.toLowerCase();
-      return inputWords.some((word) => taskTitle.includes(word.toLowerCase()));
+      const taskTitleWords = task.title.toLowerCase().split(" ");
+      for (let i = 0; i < inputWords.length; i++) {
+        const coincidence = taskTitleWords.some((word) => {
+          return word === inputWords[i];
+        });
+        return coincidence;
+      }
     });
 
-    filteredTasks.length > 0
-      ? setSelectedTasks(filteredTasks)
-      : setSelectedTasks([]);
+    setCurrentPage(1);
+
+    if (!input) {
+      return setSelectedTasks(tasks);
+    }
+
+    if (filteredTasks.length > 0) {
+      return setSelectedTasks(filteredTasks);
+    }
+
+    if (filteredTasks.length === 0) {
+      return setSelectedTasks([]);
+    }
   }
 
   useEffect(() => {
@@ -30,6 +46,7 @@ const SearchTaskForm = ({ tasks, setSelectedTasks }) => {
           borderRadius: 10,
         },
         width: "100%",
+        paddingBottom: 2,
       }}
     />
   );

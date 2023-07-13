@@ -23,57 +23,58 @@ const CreateTasksForm = ({ handleSearch, loading }) => {
   }
 
   return (
-    <>
-      <Box onSubmit={handleForm} component={"form"} sx={{paddingTop: {xs: 10 ,md: 0}}}>
-        <CustomBox>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "100%",
-              margin: "auto",
-              gap: 2,
-              paddingBottom: 2,
-            }}
-          >
-            <TextField
-              placeholder="Título"
-              sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
-              fullWidth
-              onChange={(e) => setTitle(e.target.value)}
-              inputProps={{ maxLength: 25 }}
-            />
-            <TextField
-              type="date"
-              sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
-              fullWidth
-              onChange={(e) => setDate(e.target.value)}
-            />
-          </Box>
-
+    <Box
+      onSubmit={handleForm}
+      component={"form"}
+      sx={{ marginTop: "auto", marginBottom: "auto" }}
+    >
+      <CustomBox>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "100%",
+            margin: "auto",
+            gap: 2,
+            paddingBottom: 2,
+          }}
+        >
           <TextField
-            placeholder="Tarea..."
-            type="text"
-            onChange={(event) => setContent(event.target.value)}
-            fullWidth
-            multiline
-            minRows={5}
-            maxRows={5}
+            placeholder="Título"
             sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
+            fullWidth
+            onChange={(e) => setTitle(e.target.value)}
+            inputProps={{ maxLength: 25 }}
           />
+          <TextField
+            type="date"
+            sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
+            fullWidth
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </Box>
 
-          <Button
-            variant="contained"
-            type="submit"
-            color="orange"
-            disabled={!title || loading}
-            sx={{ marginTop: "2rem" }}
-          >
-            Agregar tarea
-          </Button>
-        </CustomBox>
-      </Box>
-    </>
+        <TextField
+          placeholder="Tarea..."
+          type="text"
+          onChange={(event) => setContent(event.target.value)}
+          fullWidth
+          multiline
+          rows={5}
+          sx={{ ".MuiInputBase-root": { backgroundColor: "white" } }}
+        />
+
+        <Button
+          variant="contained"
+          type="submit"
+          color="orange"
+          disabled={!title || loading}
+          sx={{ marginTop: "2rem" }}
+        >
+          Agregar tarea
+        </Button>
+      </CustomBox>
+    </Box>
   );
 };
 
